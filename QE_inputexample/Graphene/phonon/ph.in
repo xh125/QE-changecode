@@ -1,0 +1,12 @@
+Phonons
+&inputph
+ tr2_ph=1.0d-16,
+ prefix='graphene',
+ outdir='./'
+! epsil=.true. !use for insulators and semiconductor with Gamma point
+ ldisp=.true.
+ nq1=12, nq2=12, nq3=1
+ !amass(1)=0.0
+ fildyn='graphene.dyn'
+ fildvscf='dvscf'
+/

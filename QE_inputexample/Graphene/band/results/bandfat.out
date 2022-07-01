@@ -1,0 +1,8 @@
+ filband     = graphene.bands.dat
+ filband need to set as the input of bands.x  
+
+ filproj     = fatband
+ filproj need to set as the input of projwfc.x 
+
+ bandfatfile = fatband.dat.gnu
+ the fatband are write to file: fatband.dat.gnu

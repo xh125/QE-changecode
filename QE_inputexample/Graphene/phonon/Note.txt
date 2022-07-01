@@ -1,0 +1,8 @@
+#Note:
+在设置采用crystal设置晶体中原子位置时，小数点后多设置几位，
+否者在phonon计算时，在寻找晶体对称操作时容易报错，
+报错内容为“unknown mode symmetry”
+
+ATOMIC_POSITIONS {crystal}
+C       0.33333333   0.66666667   0.500000
+C       0.66666667   0.33333333   0.500000

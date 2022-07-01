@@ -1,0 +1,6 @@
+&projwfc
+prefix = 'graphene'
+outdir = './'
+lsym = .false.
+filproj = 'fatband'
+/

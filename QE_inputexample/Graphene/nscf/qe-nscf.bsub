@@ -1,0 +1,24 @@
+#!/bin/bash
+#BSUB -J nscf
+#BSUB -q privateq-zw
+##BSUB -q publicq
+#BSUB -n 28
+#BSUB -R "span[ptile=28]"
+#BSUB -o %J.out
+#BSUB -e %J.err
+
+CURDIR=$PWD
+rm -f nodelist >& /dev/null
+for host in `echo $LSB_HOSTS`
+do
+echo $host >> nodelist
+done
+NP=`cat nodelist | wc -l`
+rm nodelist
+
+module use /share/home/zw/xiehua/modulefiles
+module load Quantum_Espresso/7.0
+
+mpirun -np $NP pw.x -nk 7 <scf.in>scf.out
+kmesh.pl 36 36 1 >>nscf.in
+mpirun -np $NP pw.x -nk 7 <nscf.in> nscf.out

@@ -1,0 +1,75 @@
+epw calculation of graphene
+&inputepw
+  prefix = 'graphene'
+  outdir = './'
+  amass(1)= 12.0107
+  dvscf_dir = '../phonon/save'
+!lifc = .true.
+!asr_typ = 'simple'  
+
+  iverbosity = 0
+
+  elph        = .true.
+  epbwrite    = .false.
+  epbread     = .false.
+  epwwrite    = .true.
+  epwread     = .false.
+  etf_mem     = 1
+  prtgkk      = .false.
+
+  wannierize = .true.
+  nbndsub     =  2
+  nbndnfbfe   =  3
+!bands_skipped = 'exclude_bands = 1'
+  num_iter = 3000
+  iprint   = 2
+  dis_win_max = 9.5
+  dis_win_min = -10.0
+  dis_froz_min = -5.3
+  dis_froz_max = 0.85
+  proj(1) = 'C:pz'
+  wannier_plot= .true.
+  wannier_plot_supercell = 5 5 1
+!wdata(1)= 'bands_plot = .true.'
+!wdata(2)= 'begin kpoint_path'
+!wdata(3)= 'G 0.00 0.00 0.00  M 0.50 0.00 0.00'
+!wdate(4)= 'M 0.50 0.00 0.00  K 0.3333 0.3333 0.00'
+!wdate(5)= 'K 0.3333 0.3333 0.00  G 0.00 0.00 0.00'
+!wdata(6)= 'end kpoint_path'
+!wdata(7)= 'bands_plot_format = gnuplot'
+  wdata(8)= 'conv_tol      = 1.0e-10 '
+  wdata(9)= 'conv_window   = 10      '
+  wdata(10)= 'dis_conv_tol  = 1.0e-10 '
+  wdata(11)= 'dis_conv_window = 5     '
+  wdata(12)= 'dis_num_iter= 30000      '
+  wdata(13)= 'dis_mix_ratio= 0.5      '
+  wdata(14)= 'guiding_centres = .true.'
+  wdata(15)= 'translate_home_cell  : true'
+  wdata(16)= 'translation_centre_frac :   0.0 0.0 0.0  '
+
+  elecselfen  = .false.
+  phonselfen  = .false.
+  a2f         = .false.
+
+!fsthick     = 5.0 ! eV
+  temps       = 300 ! K
+  degaussw    = 0.005 ! eV
+
+!  band_plot   = .true.
+!  filkf       = './LGX.txt'
+!  filqf       = './LGX.txt'
+
+  nkf1 = 36
+  nkf2 = 36
+  nkf3 = 1
+  nqf1 = 36
+  nqf2 = 36
+  nqf3 = 1
+
+  nk1 = 36
+  nk2 = 36
+  nk3 = 1
+  nq1 = 12
+  nq2 = 12
+  nq3 = 1
+/ 

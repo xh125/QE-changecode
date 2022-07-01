@@ -1,0 +1,11 @@
+&input
+asr   = 'simple'
+flfrc = 'graphene.fc'
+flfrq = 'phonon-freq'
+q_in_band_form = .true.
+/
+4
+gG     40
+M      24
+K      40
+gG     1

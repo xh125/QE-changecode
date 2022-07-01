@@ -1,0 +1,5 @@
+&fatinput
+    filband	= "graphene.bands.dat"
+    filproj	= "fatband"
+    bandfatfile	= "fatband.dat.gnu"
+/

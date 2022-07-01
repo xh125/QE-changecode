@@ -1,0 +1,56 @@
+&CONTROL
+    calculation   = "nscf"  
+    restart_mode  = "from_scratch"
+    prefix        = "graphene"
+    outdir        = "./"
+    pseudo_dir    = "./pseudo/"
+    verbosity     = "high"
+    tprnfor       = .true.
+    tstress       = .true.
+    etot_conv_thr =  1.0d-8
+    forc_conv_thr =  1.0d-7
+/
+
+&SYSTEM
+    ibrav       = 4
+    nat         = 2
+    ntyp        = 1
+!    a           = 2.467196594915731
+!    c           = 20.0
+ celldm(1) =      4.66232677
+ celldm(3) =      8.10636498
+    nbnd        = 36
+    occupations = "smearing"
+    smearing    = "mp"    
+    degauss     =  1.0d-2
+    ecutwfc     =  80
+    ecutrho     =  480
+/
+
+&ELECTRONS
+    conv_thr         =  1.000e-12
+    electron_maxstep =  200
+    mixing_beta      =  7.00000e-01
+    startingpot      = "atomic"
+    startingwfc      = "atomic+random"
+/
+
+!&IONS
+!    ion_dynamics = "bfgs"
+!/
+
+!&CELL
+!    cell_dofree    = "ibrav+2Dxy"
+!    cell_dynamics  = "bfgs"
+!    press_conv_thr =  0.001
+!/
+
+ATOMIC_SPECIES
+C      12.01070  C.pbe-n-kjpaw_psl.1.0.0.UPF
+
+ATOMIC_POSITIONS {crystal}
+C       0.333333333333333   0.666666666666667   0.500000
+C       0.666666666666667   0.333333333333333   0.500000
+
+!K_POINTS {automatic}
+! 36  36  1  0 0 0

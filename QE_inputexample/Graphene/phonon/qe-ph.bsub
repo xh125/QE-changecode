@@ -1,0 +1,25 @@
+#!/bin/bash
+#BSUB -J phonon
+#BSUB -q privateq-zw
+##BSUB -q publicq
+#BSUB -n 28
+#BSUB -R "span[ptile=28]"
+#BSUB -o %J.out
+#BSUB -e %J.err
+
+CURDIR=$PWD
+rm -f nodelist >& /dev/null
+for host in `echo $LSB_HOSTS`
+do
+echo $host >> nodelist
+done
+NP=`cat nodelist | wc -l`
+rm nodelist
+
+module use /share/home/zw/xiehua/modulefiles
+module load Quantum_Espresso/7.0
+
+mpirun -np $NP pw.x -nk 14 <scf.in>scf.out
+mpirun -np $NP ph.x -nk 14 <ph.in> ph.out
+mpirun -np $NP q2r.x -nk 14 <q2r.in>q2r.out
+mpirun -np $NP matdyn.x -nk 14 <matdyn-freq.in> matdyn-freq.out

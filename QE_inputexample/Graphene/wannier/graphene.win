@@ -1,0 +1,64 @@
+num_wann = 2
+num_bands= 36
+
+begin projections
+C:pz
+end projections
+
+!translate_home_cell = .true.
+
+!Disentanglement
+dis_win_min  = -10.0
+dis_win_max  = 9.5
+dis_froz_min = -5.3
+dis_froz_max = -0.85
+dis_num_iter = 20000
+!dis_mix_ratio= 0.5
+!dis_conv_tol = 1.0E-10
+!dis_conv_window = 5
+    
+!Wannierise
+num_iter = 20000
+conv_tol = 1.0E-10
+conv_window     = 10
+guiding_centres = .true.
+    
+!Post-Processing
+!restart = plot
+wannier_plot = .true.
+!wannier_plot_format = xcrysden
+wannier_plot_format = cube 
+wannier_plot_mode   = crystal
+wannier_plot_supercell = 5 5 1
+
+bands_plot = .ture.
+bands_num_points = 100
+bands_plot_format = gnuplot
+begin kpoint_path
+     G 0.0 0.0 0.0 M 0.0 0.5 0.0
+     M 0.0 0.5 0.0 K 0.333333 0.333333 0.0
+     K 0.333333 0.333333 0.0 G 0.0 0.0 0.0 
+end kpoint_path
+
+! fermi_surface_plot = .true.
+! fermi_surface_num_points = 100
+! fermi_energy = -5.262
+
+write_hr=.true.
+write_rmn=.true.
+write_tb=.true.
+!end plot
+
+begin unit_cell_cart
+Bohr
+        4.6623268   0.0000000   0.0000000
+       -2.3311634   4.0376934   0.0000000
+        0.0000000   0.0000000  37.7945225
+end unit_cell_cart
+
+begin atoms_cart
+Bohr
+        C          -0.0000000   2.6917956  18.8972612
+        C           2.3311634   1.3458978  18.8972612
+end atoms_cart
+
