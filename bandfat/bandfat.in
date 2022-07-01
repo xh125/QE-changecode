@@ -1,0 +1,5 @@
+&fatinput
+    filband	= "Si.bands.dat"
+    filproj	= "fatband"
+    bandfatfile	= "fatband.dat.gnu"
+/
