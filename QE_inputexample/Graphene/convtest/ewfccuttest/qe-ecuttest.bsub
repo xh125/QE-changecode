@@ -20,6 +20,8 @@ module use /share/home/zw/xiehua/modulefiles
 module load Quantum_Espresso/7.1
 
 rm -f etot_vs_ecut.dat
+cat "e_cut   Etot"> etot_vs_ecut
+cat " Ry      Ry ">>etot_vs_ecut
 for ecut in $(seq 40 5 100)
 do
 	erho=$[8 * $ecut]
