@@ -17,7 +17,7 @@ NP=`cat nodelist | wc -l`
 rm nodelist
 
 module use /share/home/zw/xiehua/modulefiles
-module load Quantum_Espresso/7.0
+module load Quantum_Espresso/7.1
 
 rm -f etot_vs_ecut.dat
 for ecut in $(seq 40 5 100)
@@ -46,7 +46,7 @@ do
  celldm(1) =      4.66148920
  celldm(3) =      6.08086614
 !    nbnd        = 16
-    assume_isolated = "2D"
+!    assume_isolated = "2D"
     occupations = "smearing"
     smearing    = "mp"    
     degauss     =  1.0d-2
